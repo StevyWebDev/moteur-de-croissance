@@ -1,0 +1,108 @@
+#conaintener-howItWorks {
+    font-family: $heebo;
+    max-width: 1200px;
+    margin: auto;
+
+    h1 {
+        font-family: $heebo;
+        padding: 10px 20px;
+        font-size: 5rem;
+        font-weight: 300;
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 70px;
+
+        &:nth-child(2) {
+            p {
+                width: 70%;
+            }
+            div {
+                &:nth-child(2) {
+                    width: 50%;
+                    text-align: end;
+                    padding: 20px;
+                    a {
+                        display: inline-block;
+                        background-color: rgb(41, 157, 202);
+                        text-decoration: none;
+                        color: white;
+                        font-family: $heebo;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                        padding: 15px 30px;
+                        border: none;
+                        border-radius: 3px;
+                        transition: 0.5s;
+
+                        &:hover {
+                            background-color: rgb(51, 183, 235);
+                            transition: 0.5s;
+                        }
+                    }
+                
+                    
+                }
+                &:nth-child(3) {
+                    width: 50%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    ul {
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(6) {
+            margin-bottom: 100px;
+            p {
+                width: 100%;
+            }
+        }
+
+        p {
+            width: 50%;
+            color: $gray-middle;
+            font-size: 1.2rem;
+            line-height: 2rem;
+            text-align: justify;
+            padding: 20px;
+        }
+
+        .block-title-section {
+            width: 100%;
+
+            h2 {
+                text-align: center;
+                font-size: 1rem;
+            }
+
+            h3 {
+                text-align: center;
+                font-size: 3rem;
+                color: #086acc;
+            }
+        }
+
+        div {
+            width: 50%;
+
+            ul {
+                padding: 20px;
+                li {
+                    list-style: none;
+                    line-height: 2rem;
+                    font-size: 1.5rem;
+                    color: #7ca4cc;
+                    font-weight: 500;
+                }   
+            }
+
+            
+        }
+    }
+}

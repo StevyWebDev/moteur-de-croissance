@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'font';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+@import 'partials/hearder';
+@import 'partials/main';
+@import 'partials/footer';

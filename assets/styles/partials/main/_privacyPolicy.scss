@@ -1,0 +1,39 @@
+#conaintener-privacyPolicy {
+    font-family: $heebo;
+    max-width: 1200px;
+    margin: auto;
+
+    h1 {
+        font-family: $heebo;
+        padding: 10px 20px;
+        font-size: 5rem;
+        font-weight: 300;
+    }
+
+    section {
+        margin-top: 70px;
+        
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #086acc;
+        }
+
+        p {
+            color: $gray-middle;
+            font-size: 1.2rem;
+            line-height: 2rem;
+            text-align: justify;
+            padding: 20px;
+
+            a {
+                color: #7ca4cc;
+                font-weight: 500;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 100px;
+        }
+    }
+}

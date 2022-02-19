@@ -1,0 +1,154 @@
+#information  {
+    #block-average-notice {
+
+        #average-notice {
+            width: $width-block-star;
+            height: $height-block-star;
+            position: relative;
+            display: inline-block;
+    
+            #stars {
+                top: 0;
+                left: 0;
+                height: 100%;
+                background-color: rgb(238, 215, 6);
+                position: absolute;
+            }
+            #img-stars {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: transparent;
+    
+                img {
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                    box-sizing: border-box;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+#container-company-information {
+    #map {
+        margin: auto;
+        width: 50%;
+        height: 400px;
+    }
+
+    #form-comment {
+        margin: auto;
+        margin-top: 100px;
+        width: 100%;
+        padding-left: 20%;
+        padding-right: 20%;
+        padding-top: 2.5%;
+        border-top: 1px solid $gray-light;
+
+        label {
+            display: block;
+            font-size: 1.1rem;
+            font-family: $heebo;
+            margin-bottom: 5px;
+        }
+        
+
+        .block-title-section {
+            width: 100%;
+            margin-bottom: 30px;
+
+            h3 {
+                text-align: center;
+                font-size: 2.5rem;
+                color: $gray;
+            }
+        }
+
+        #block-notice-informtaion-company {
+            span {
+                display: block;
+                font-size: 1.1rem;
+                font-family: $heebo;
+                margin-bottom: 5px;
+            }
+
+            .stars {
+                margin-top: 5px;
+                margin-bottom: 20px;
+
+                .la-star {
+                    font-size: 2rem;
+                    color: rgb(238, 215, 6);
+                    cursor: pointer;
+                }
+            } 
+        }
+
+        #block-title-information-company {
+            input {
+                height: 20px;
+                padding: 20px 10px;
+                border: 1px solid $gray-light;
+                border-radius: 3px;
+                font-size: 1.2rem;
+
+                &::placeholder {
+                    color: $gray-light;
+                }
+            }
+        }
+
+        #block-comment-information-company {
+            margin-top: 20px;
+            div {
+                position: relative;
+                width: 100%;
+                padding-top: 20%;
+
+                textarea {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    resize : none;
+                    border-radius: 3px;
+                    padding: 10px;
+                    font-size: 1.2rem;
+                    font-family: $heebo;
+                    border: 1px solid $gray-light;
+                    outline-style: none;
+                }
+            }
+        }
+
+        .form-button {
+            padding: 20px 0;
+            margin: auto;
+            text-align: center;
+            
+            button {
+                background-color: rgb(41, 157, 202);
+                text-decoration: none;
+                color: white;
+                font-family: $heebo;
+                font-weight: 600;
+                font-size: 1.1rem;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 3px;
+                transition: 0.5s;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(51, 183, 235);
+                    transition: 0.5s;
+                }
+            }
+            
+        }
+    }
+}

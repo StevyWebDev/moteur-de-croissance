@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Ebla{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_script_tags('app') }}
+    </head>
+    
+    <body>
+    <div id="contentForm"></div>
+        <section id="section-account">
+            <aside id="aside-menu-account">
+                <ul>
+                    <li>
+                        <a class="lien-menu-account home" href="{{ path('home') }}">Moteur de croissance</a>
+                    </li>
+                    <li>
+                        <a class="lien-menu-account {% block hear_personal %}{% endblock %} personal" href="{{ path('profile_user') }}">Informations personnel</a>
+                    </li>
+                    <li>
+                        <a class="lien-menu-account {% block hear_company %}{% endblock %} company" href="{{ path('profile_company') }}">Mon entreprise</a>
+                    </li>
+                </ul>
+            </aside>
+            <aside id="aside-container-account">
+                {% block body %}
+        
+                {% endblock %}
+            </aside>
+        </section>
+        {% block javascripts %}
+        
+        {% endblock %}
+    </body>
+</html>

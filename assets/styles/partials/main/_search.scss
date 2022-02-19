@@ -1,0 +1,124 @@
+#form-search {
+    width: 900px;
+    margin: auto;
+    border: 1px solid #7ca4cc;
+    border-radius: 15px;
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        height: 100%;
+        font-size: 1.5rem;
+
+        input, select, button {
+            width: 100%;
+            border: none;
+            height: 100%;
+            font-size: 1.2rem;
+        }
+        
+        #search-name-activity {
+            width: 20%;
+            z-index: 1;
+            border-radius: 15px 0 0 15px;
+
+            select {
+                padding: 0 0 0 20px;
+                border-radius: 15px 0 0 15px;
+                z-index: 1;
+            }
+        }
+        
+        #search-address {
+            width: 50%;
+            padding: 0 5px;
+
+            .algolia-places {
+                z-index: 5;
+                padding: 20px 10px;
+                
+                .ap-input-icon, .ap-icon-pin {
+                    margin: 0;
+                    padding: 0;
+                    left: 0;
+                    padding: 5px;
+                    cursor: text;
+                }
+            }
+
+            #algolia-places-listbox-0 {
+                width: 900px;  
+                left: calc(-900px + 162%) !important;
+            }
+
+            .ap-dataset-places {
+                width: 100%;
+            }
+        }
+
+        #search-distance {
+            width: 10%;
+            select {
+                border-left: 1px solid $gray-light;
+                border-right: 1px solid $gray-light;
+            }
+        }
+
+        #search-button {
+            width: 20%;
+            border-radius: 0 15px 15px 0;
+
+            button {
+                cursor: pointer;
+                border-radius: 0 10px 10px 0;
+                background-color: #7ca4cc;
+            }
+        }
+    }
+
+    
+}
+
+#container-search {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    #column-filter {
+        width: 20%;
+        border-right: 1px solid $gray-middle;
+        min-height: 100%;
+    }
+
+    #column-search {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        .card-search {
+            border: 1px solid $gray-middle;
+            width: calc(33% - 20px);
+            font-size: 1.1rem;
+            font-family: $heebo;
+            border-radius: 10px;
+            margin: 10px;
+            height: auto;
+
+            figure {
+                width: 80%;
+                margin: auto;
+                max-height: 100px;
+                text-align: center;
+                margin-top: 40px;
+                margin-bottom: 40px;
+
+                img {
+                    max-height: 100px
+                }
+            }
+        }
+    }
+}

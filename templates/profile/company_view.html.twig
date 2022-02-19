@@ -1,0 +1,81 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block name %}hear{% endblock %}
+
+{% block body %}
+<section id="section-page-title">
+    <h2>Mon entreprise</h2>
+</section>
+<section id="section-content">
+    <div>
+        <h4>Nom <span id="changeName"></span></h4>
+        <span>{{ company.name }}</span>
+    </div>
+
+    <div>
+        <h4>Adresse <span id="changeFirstname"></span></h4>
+        <span>{{ company.adress }}</span>
+    </div>
+
+    <div>
+        <h4>Code postal <span id="changeEmail"></span></h4>
+        <span>{{ company.numberPostal }}</span>
+    </div>
+
+    <div>
+        <h4>Ville <span id="changeEmail"></span></h4>
+        <span>{{ company.city }}</span>
+    </div>
+
+    <div>
+        <h4>Téléphone <span id="changeEmail"></span></h4>
+        <span>{{ company.phone }}</span>
+    </div>
+
+    <div>
+        <h4>Email <span id="changeEmail"></span></h4>
+        <span>{{ company.email }}</span>
+    </div>
+
+    <div>
+        <h4>Code NAF <span id="changeEmail"></span></h4>
+        <span>{{ company.numberNaf }}</span>
+    </div>
+
+    <div>
+        <h4>Numéro de TVA <span id="changeEmail"></span></h4>
+        <span>{{ company.numberTva }}</span>
+    </div>
+
+    <div>
+        <h4>Numéro de SIREN <span id="changeEmail"></span></h4>
+        <span>{{ company.sirenNumber }}</span>
+    </div>
+
+    <div>
+        <h4>Domaine <span id="changeEmail"></span></h4>
+        {% for companyActivity in company.companyActivities %}
+        <div>
+            <span>{{ companyActivity.name }}</span>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div>
+        <h4>Services <span id="changeEmail"></span></h4>
+        {% for companyActivity in company.underActivities %}
+        <div>
+            <span>{{ companyActivity.name }}</span>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

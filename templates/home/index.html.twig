@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="home-view">
+        <section id="title">
+            <h1>EBLA</h1>
+            <h2>Moteur de croissance</h2>
+        </section>
+        <section id="form-home">
+            {{ form_start(form) }}
+                <div id="search-name-activity">
+                    {{ form_widget(form.nameActivity) }}
+                </div>
+                <div id="search-address">
+                    {{ form_widget(form.address, {'attr' : {'placeholder' : 'Localisation'}}) }}
+                </div>
+                <div id="search-distance">
+                    {{ form_widget(form.distance) }}
+                </div>
+                <div id="search-button">
+                    <button type="submit">rechercher</button>
+                </div>
+            {{ form_end(form) }}
+        </section>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

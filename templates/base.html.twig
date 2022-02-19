@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Ebla{% endblock %}</title>
+        {{ encore_entry_link_tags('app') }}
+        {% block stylesheets %}
+        {% endblock %}
+        {{ encore_entry_script_tags('app') }}
+        {% block javascripts %}
+            
+        {% endblock %}
+    </head>
+    
+    <body>
+        <header id="header-body">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{{ path('logout') }}">deconnexion</a>
+                </li>
+                <li>
+                    <a href="{{ path('howItWorks') }}">Comment ça marche</a>
+                </li>
+                <li>
+                    {% if is_granted("ROLE_USER_VALID") %}
+                        <a href="{{ path('profile_user') }}">Mon Compte</a>
+                        {% else %}
+                        <a href="{{ path('app_login') }}">Mon Compte</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+        {% block body %}{% endblock %}
+
+        <footer id="footer-body">
+        <div>
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Carrières</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://www.linkedin.com/company/eblatechnologies/"><img src="{{ asset('images/Linkedin.png')}}" width="40px" alt=""></a></li>
+                <li><a href="https://www.pinterest.fr/eblatechnologies/"><img src="{{ asset('images/pinterest.png')}}" width="40px" alt=""></a></li>
+                <li><a href="https://twitter.com/EblaTechnologie"><img src="{{ asset('images/twitter.png')}}" width="40px" alt=""></a></li>
+                <li><a href="https://www.google.com/maps/place/Ebla+Technologies/@48.8536146,2.3910422,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66fa4c5c48187:0x608c14b6718f0423!8m2!3d48.8536078!4d2.3932344"><img src="{{ asset('images/google_plus.png')}}" width="40px" alt=""></a></li>
+                <li><a href="https://www.facebook.com/eblatechnologies"><img src="{{ asset('images/facebook.png')}}" width="40px" alt=""></a></li>
+                <li><a href="https://www.instagram.com/eblatechnologies/"><img src="{{ asset('images/instagram.png')}}" width="40px" alt=""></a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="{{ path('privacyPolicy') }}">Politique de Confidentialité</a>
+                </li>
+                <li>
+                    <a href="#">Termes et Conditions</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    </body>
+</html>

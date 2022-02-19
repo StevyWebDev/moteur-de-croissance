@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="home-view">
+        <section id="title">
+            <h1>EBLA</h1>
+            <h2>Moteur de croissance</h2>
+        </section>
+        <section id="test">
+            <div>
+
+            </div>
+        </section>
+        <section id="form-home">
+            <form id="search-form-company" action="" method="get">
+                <input type="search" name="param" id="search-company" placeholder="recherche">
+                <button type="submit" id="button-search-company"><img src="{{ asset('images/search.png')}}" height="80%"></button>
+            </form>
+            
+            {{ form_start(formSearch, {'attr' : {'id' : 'search-form-activity'}})}}
+                <div id="search-activity">
+                    {{ form_widget(formSearch.companyActivities) }}
+                </div>
+
+                {{ form_widget(formSearch.underActivities) }}
+                
+            {{ form_end(formSearch)}}
+            <div id="bloc-result-search"></div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        window.onload = () => {
+            const FilterForm = document.querySelector("#search-form-company");
+
+            document.querySelector("#search-company").addEventListener("input", () => {
+                const Form = new FormData(FilterForm)
+
+                const Params = new URLSearchParams()
+
+                Form.forEach((value, key) => {
+                    Params.append(key, value)
+                })
+
+                const Url = new URL(window.location.href)
+
+                fetch(Url.pathname+"?"+Params.toString() + "&ajax=1", {
+                    headers: {
+                        "X-Requested-With" : "XMLHttpRequest"
+                    }
+                }).then(response => response.json()
+                ).then(data => {
+                    const content = document.querySelector('#bloc-result-search').innerHTML = data.content
+                })
+                .catch(e => alert(e))
+            })
+
+            let activity = document.querySelector("#search_companyActivities");
+
+            activity.addEventListener("change", function() {
+                let form = this.closest("form");
+                let data = this.name + "=" + this.value;
+                
+                fetch(form.action, {
+                    method: form.getAttribute("method"),
+                    body: data,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded; charset:UTF-8"
+                    }
+                })
+                .then(response => response.text())
+                .then(html => {
+                    let content = document.createElement("html");
+                    content.innerHTML = html;
+                    let nouveauSelect = content.querySelector("#search_underActivities");
+                    document.querySelector("#search_underActivities").replaceWith(nouveauSelect);
+
+                    const FilterFormActivity = document.querySelector('#search-form-activity')
+                    
+                    document.querySelectorAll('#search_underActivities input').forEach(input => {
+                        input.addEventListener("change", () => {
+                            const Form = new FormData(FilterFormActivity)
+
+                            const Params = new URLSearchParams()
+
+                            Form.forEach((value, key) => {
+                                Params.append(key, value)
+                            })
+
+                            const Url = new URL(window.location.href)
+                            console.log(Url.pathname+"?"+Params.toString() + "&search_activity=1")
+                            fetch(Url.pathname+"?"+Params.toString() + "&search_activity=1", {
+                                headers: {
+                                    "X-Requested-With" : "XMLHttpRequest"
+                                }
+                            }).then(response => response.json()
+                            ).then(data => {
+                                const content = document.querySelector('#bloc-result-search').innerHTML = data.content
+                            })
+                            .catch(e => alert(e))
+                        })
+                    })
+                })
+                .catch(e => alert(e))
+            })
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,20 @@
+@import 'main/home';
+@import 'main/authentication';
+@import 'main/accout';
+@import 'main/howItWorks';
+@import 'main/privacyPolicy';
+@import 'main/error';
+@import 'main/search';
+@import 'main/company_information';
+
+#section-page-title {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+
+    h2 {
+        font-size: 3rem;
+        font-family: $ptSherif;
+        color: $gray;
+    }
+}

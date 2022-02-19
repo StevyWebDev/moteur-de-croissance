@@ -1,0 +1,101 @@
+#home-view {
+
+    #title {
+
+        width: 100%;
+        text-align: center;
+
+        h1 {
+            color: #086acc;
+            font-size: 6rem;
+            font-family: $ptSherif;
+        }
+
+        h2 {
+            color: #7ca4cc;
+            font-size: 2rem;
+            font-family: $ptSherif;
+        }
+    }
+
+    #form-home {
+        width: 900px;
+        margin: auto;
+        margin-top: 150px;
+        border: 1px solid #7ca4cc;
+        border-radius: 15px;
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            height: 100%;
+            font-size: 1.5rem;
+
+            input, select, button {
+                width: 100%;
+                border: none;
+                height: 100%;
+                font-size: 1.2rem;
+            }
+            
+            #search-name-activity {
+                width: 20%;
+                z-index: 1;
+                border-radius: 15px 0 0 15px;
+
+                select {
+                    padding: 0 0 0 20px;
+                    border-radius: 15px 0 0 15px;
+                    z-index: 1;
+                }
+            }
+            
+            #search-address {
+                width: 50%;
+                padding: 0 5px;
+
+                .algolia-places {
+                    z-index: 5;
+                    padding: 20px 10px;
+                    
+                    .ap-input-icon, .ap-icon-pin {
+                        margin: 0;
+                        padding: 0;
+                        left: 0;
+                        padding: 5px;
+                        cursor: text;
+                    }
+                }
+
+                #algolia-places-listbox-0 {
+                    width: 900px;  
+                    left: calc(-900px + 162%) !important;
+                }
+
+                .ap-dataset-places {
+                    width: 100%;
+                }
+            }
+    
+            #search-distance {
+                width: 10%;
+                select {
+                    border-left: 1px solid $gray-light;
+                    border-right: 1px solid $gray-light;
+                }
+            }
+    
+            #search-button {
+                width: 20%;
+                border-radius: 0 15px 15px 0;
+
+                button {
+                    cursor: pointer;
+                    border-radius: 0 10px 10px 0;
+                    background-color: #7ca4cc;
+                }
+            }
+        }
+    }
+}

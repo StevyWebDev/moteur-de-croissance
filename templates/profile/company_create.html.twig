@@ -1,0 +1,115 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block hear_company %}hear{% endblock %}
+{% block body %}
+<div id="form-auth">
+    <section id="section-page-title">
+        <h2>Mon entreprise</h2>
+    </section>
+    <section id="form-inscription">
+        {{ form_start(form) }}
+            <div class="bloc-input">
+                {{ form_label(form.name, 'Nom', {'label_attr' : {'class' : 'label name-company-label'}}) }}
+                {{ form_widget(form.name, {'attr' : {'placeholder' : 'Nom'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.adress, 'Adresse', {'label_attr' : {'class' : 'label adress-company-label'}}) }}
+                {{ form_widget(form.adress, {'attr' : {'placeholder' : 'Adresse'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.number_postal, 'Code Postal', {'label_attr' : {'class' : 'label number_postal-company-label'}}) }}
+                {{ form_widget(form.number_postal, {'attr' : {'placeholder' : 'Code Postal'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.city, 'Ville', {'label_attr' : {'class' : 'label city-company-label'}}) }}
+                {{ form_widget(form.city, {'attr' : {'placeholder' : 'Ville'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.phone, 'Téléphone', {'label_attr' : {'class' : 'label phone-label'}}) }}
+                {{ form_widget(form.phone, {'attr' : {'placeholder' : 'Téléphone'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.email, 'Email', {'label_attr' : {'class' : 'label email-label'}}) }}
+                {{ form_widget(form.email, {'attr' : {'placeholder' : 'Email'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.logo, 'Logo', {'label_attr' : {'class' : 'label city-logo-label'}}) }}
+                {{ form_widget(form.logo, {'attr' : {'placeholder' : 'Logo'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.siren_number, 'Numéro de SIREN', {'label_attr' : {'class' : 'label siren_number-company-label'}}) }}
+                {{ form_widget(form.siren_number, {'attr' : {'placeholder' : 'Numéro de SIREN'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.number_tva, 'Numéro de TVA', {'label_attr' : {'class' : 'label number_tva-company-label'}}) }}
+                {{ form_widget(form.number_tva, {'attr' : {'placeholder' : 'Numéro de TVA'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.number_naf, 'Code NAF', {'label_attr' : {'class' : 'label number_naf-company-label'}}) }}
+                {{ form_widget(form.number_naf, {'attr' : {'placeholder' : 'Numéro de TVA'}}) }}
+            </div> 
+
+            <div class="bloc-input">
+                {{ form_label(form.companyActivities, 'Activité', {'label_attr' : {'class' : 'label companyActivities-company-label'}}) }}
+                {{ form_widget(form.companyActivities, {'attr' : {'placeholder' : 'Activité'}}) }}
+            </div> 
+            
+            <div class="bloc-input">
+                {{ form_label(form.underActivities, 'Services', {'label_attr' : {'class' : 'label underActivities-company-label'}}) }}
+            </div> 
+            {{ form_widget(form.underActivities) }}
+            <div class="bloc-button">
+                <div class="bloc-login">
+                    <button class="button button-login" type="submit">Envoyer</button>
+                </div>
+            </div>
+        {{ form_end(form) }}
+    </section>
+</div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+        window.onload = () => {
+            let activity = document.querySelector("#company_companyActivities");
+
+            activity.addEventListener("change", function() {
+                let form = this.closest("form");
+                let data = this.name + "=" + this.value;
+                
+                fetch(form.action, {
+                    method: form.getAttribute("method"),
+                    body: data,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded; charset:UTF-8"
+                    }
+                })
+                .then(response => response.text())
+                .then(html => {
+                    let content = document.createElement("html");
+                    content.innerHTML = html;
+                    let nouveauSelect = content.querySelector("#company_underActivities");
+                    document.querySelector("#company_underActivities").replaceWith(nouveauSelect);
+                    $('#company_underActivities').select2();
+                })
+            })
+        }
+    </script>
+{% endblock %}

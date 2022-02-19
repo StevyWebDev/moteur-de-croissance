@@ -1,0 +1,117 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block hear_personal %}hear{% endblock %}
+
+{% block body %}
+
+<section id="section-page-title">
+    <h2>Informations personnel</h2>
+</section>
+<section id="section-content">
+    <div>
+        <h4>Nom <span id="changeName"></span></h4>
+        <span>{{ user.name }}</span>
+    </div>
+
+    <div>
+        <h4>Prénom <span id="changeFirstname"></span></h4>
+        <span>{{ user.firstname }}</span>
+    </div>
+
+    <div>
+        <h4>Email <span id="changeEmail"></span></h4>
+        <span>{{ user.email }}</span>
+    </div>
+
+    <div>
+        <h4>Téléphone <span id="changePhone"></span></h4>
+        <span>{{ user.phone }}<span>
+    </div>
+
+    <div>
+        <h4>Mot de passe <span id="changePassword"></span></h4>
+    </div>
+</section>
+ 
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+    let changeName = document.querySelector('#changeName');
+            
+changeName.addEventListener('click', function() {
+    let containter = document.querySelector('#contentForm');
+
+    containter.innerHTML = `
+    <div id="form-account">
+        <form action="{{ path('update_name') }}" method="post">
+            {{ render(path('update_name'))}}
+        </form>
+    </div>
+`
+})
+
+let changeFirstname = document.querySelector('#changeFirstname');
+    
+changeFirstname.addEventListener('click', function() {
+    let containter = document.querySelector('#contentForm');
+
+    containter.innerHTML = `
+    <div id="form-account">
+        <form action="{{ path('update_firstname') }}" method="post">
+            {{ render(path('update_firstname'))}}
+        </form>
+    </div>
+`
+})
+
+let changeEmail = document.querySelector('#changeEmail');
+    
+changeEmail.addEventListener('click', function() {
+    let containter = document.querySelector('#contentForm');
+
+    containter.innerHTML = `
+    <div id="form-account">
+        <form action="{{ path('update_email') }}" method="post">
+            {{ render(path('update_email'))}}
+        </form>
+    </div>
+`
+})
+
+let changePhone = document.querySelector('#changePhone');
+    
+changePhone.addEventListener('click', function() {
+    let containter = document.querySelector('#contentForm');
+
+    containter.innerHTML = `
+    <div id="form-account">
+        <form action="{{ path('update_phone') }}" method="post">
+            {{ render(path('update_phone'))}}
+        </form>
+    </div>
+`
+})
+
+let changePassword = document.querySelector('#changePassword');
+    
+changePassword.addEventListener('click', function() {
+    let containter = document.querySelector('#contentForm');
+
+    containter.innerHTML = `
+    <div id="form-account">
+        <form action="{{ path('update_password') }}" method="post">
+            {{ render(path('update_password'))}}
+        </form>
+    </div>
+`
+})
+
+function deleteForm() {
+    let containter = document.querySelector('#contentForm');
+    containter.innerHTML = ""
+}
+    </script>
+{% endblock %}

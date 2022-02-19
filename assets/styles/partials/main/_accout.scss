@@ -1,0 +1,265 @@
+#section-account {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 50px;
+
+    #aside-menu-account {
+        width: 20%;
+        border-right: 1px solid $gray-light;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+
+            li {
+                width: 100%;
+                list-style: none;
+
+                .lien-menu-account {
+                    display: block;
+                    padding: 10px 0 10px 5px;
+                    text-decoration: none;
+                    color: $gray;
+                    transition: 0.2s;
+
+                    &:before {
+                        content: ' ';
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-bottom: 4px;
+                        margin-right: 5px;
+                        width: 24px;
+                        height: 20px;
+                    }
+
+                    &:hover {
+                        background-color: rgb(41, 157, 202);
+                        color: white;
+                        transition: 0.2s;
+                    }
+                }
+
+                .personal {
+                    &::before {
+                        background-image: $firstname;
+                    }
+                }
+
+                .company {
+                    &::before {
+                        background-image: $company;
+                    }
+                }
+
+                .home {
+                    &::before {
+                        background-image: $home;
+                    }
+                }
+
+                .hear {
+                    background-color: rgb(41, 157, 202);
+                    color: white;
+                }
+            }
+        }
+    }
+
+    #aside-container-account {
+        width: 80%;
+
+        #section-page-title {
+            margin-top: 0;
+        }
+
+        #section-content {
+            margin-top: 50px;
+            padding-left: 20px; 
+
+            div {
+                margin-top: 20px;
+                h4 {
+                    font-size: 1.5rem;
+                    font-family: $heebo;
+                    color: $gray;
+
+                    span {
+                        display: inline-block;
+                        height: 24px;
+                        width: 24px;
+                        margin: 0;
+                        background-image: $pencil;
+                        cursor: pointer;
+                    }
+                }
+    
+                span {
+                    font-size: 1.3rem;
+                    margin-top: 10px;
+                    font-family: $heebo;
+                    color: $gray-middle;
+                }
+            }
+        }
+    }
+
+
+}    
+#form-account {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(202, 202, 202, 0.5);
+    display: flex;
+    flex-direction: column;
+
+    form {
+        width: 85%;
+        max-width: 500px;
+        margin: auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 3px;
+        
+        .bloc-input {
+            margin-top: 20px;
+
+            input {
+                margin-top: 5px;
+                width: 100%;
+                height: 20px;
+                padding: 20px 10px;
+                border: 1px solid $gray-light;
+                font-size: 1.2rem;
+
+                &::placeholder {
+                    color: $gray-light;
+                }
+            }
+
+            .label {
+                display: block;
+                font-size: 1.2rem;
+                font-family: $heebo;
+                font-weight: 500;
+                color: $gray;
+
+                &:before {
+                    content: ' ';
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-bottom: 4px;
+                    margin-right: 5px;
+                    width: 24px;
+                    height: 20px;
+                }
+            }
+
+            .name-label {
+                &:before {
+                    background-image: $name;
+                }
+            }
+
+            .firstname-label {
+                &:before {
+                    background-image: $firstname;
+                }
+            }
+            
+            .email-label {
+                &:before {
+                    background-image: $email;
+                }
+            }
+
+            .phone-label {
+                &:before {
+                    background-image: $phone;
+                }
+            }
+
+            .password-label {
+                &:before {
+                    background-image: $lock;
+                }
+            }
+        }
+
+        .bloc-button {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 40px;
+
+            div {
+                width: 50%;
+            }
+
+            .bloc-login {
+                padding-right: 5px;
+            }
+
+            .bloc-inscription {
+                padding-left: 5px;
+            }
+
+            .button {
+                width: 100%;
+                padding: 15px 0;
+                border: none;
+                border-radius: 3px;
+                transition: 0.5s;
+            }
+
+            .button-login {
+                background-color: rgb(41, 157, 202);
+                cursor: pointer;
+                color: white;
+                font-family: $heebo;
+                font-weight: 400;
+                font-size: 1.1rem;
+                
+
+                &:hover {
+                    background-color: rgb(51, 183, 235);
+                    transition: 0.5s;
+                }
+            }
+
+            .button-inscription {
+                text-align: center;
+                display: block;
+                background-color: rgb(228, 228, 228);
+                text-decoration: none;
+                color: $gray;
+                font-family: $heebo;
+                font-weight: 400;
+                font-size: 1.1rem;
+
+                &:hover {
+                    background-color: rgb(218, 218, 218);
+                    transition: 0.5s;
+                }
+            }
+        }
+
+        #bloc-forgot-password {
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+
+            a {
+                text-decoration: none;
+                color: $gray-middle;
+                font-family: $heebo;
+                font-size: 1.1rem;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

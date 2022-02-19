@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        #title {
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #086acc;
+            font-size: 6rem;
+            font-family: 'PT Serif', serif;
+        }
+
+        h2 {
+            color: #7ca4cc;
+            font-size: 2rem;
+            font-family: 'PT Serif', serif;
+        }
+
+        #content, #bloc-button {
+            margin-top: 50px;
+        }
+        
+        p {
+            margin-top: 20px;
+        }
+
+        #bloc-button {
+            text-align: center;
+        }
+
+        #button {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 3px;
+            transition: 0.5s;
+            background-color: rgb(41, 157, 202);
+            text-decoration: none;
+            color: white;
+            font-family: 'Heebo', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        #button:hover {
+            background-color: rgb(51, 183, 235);
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <section id="title">
+        <h1>EBLA</h1>
+        <h2>Moteur de croissance</h2>
+    </section>
+    <section id="content">
+        <div id="block-content">
+            <h3>Bonjour {{ user }} !</h3>
+            <p>Merci d'avoir rejoind Ebla: Moteur de croissancence ! Avant de pouvoir commencer, nous devons verifier votre adresse e-mail.</p>
+        </div>
+        <div id="bloc-button">
+            <a id="button" href="{{ absolute_url(path('user_activation', {'token' : token})) }}">Je confirme mon email</a>
+        </div>
+    </section>
+</body>
+</html>

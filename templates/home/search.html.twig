@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<main>
+    <section id="form-search">
+        {{ form_start(form) }}
+            <div id="search-name-activity">
+                {{ form_widget(form.nameActivity) }}
+            </div>
+            <div id="search-address">
+                {{ form_widget(form.address, {'attr' : {'placeholder' : 'Localisation'}}) }}
+            </div>
+            <div id="search-distance">
+                {{ form_widget(form.distance) }}
+            </div>
+            <div id="search-button">
+                <button type="submit">rechercher</button>
+            </div>
+        {{ form_end(form) }}
+    </section>
+
+    <section id="container-search">
+        <aside id="column-filter">
+
+        </aside>
+        <aside id="column-search">
+            {% for company in companies %}
+                <div class="card-search">
+                    <figure>
+                        <img src="{{ asset('images/logo_company/'~company.logo)}}" alt="">
+                    </figure>
+                    <section>
+                        <div><span>{{ company.name }}</span></div>
+                        <div><span>{{ company.adress }}</span></div>
+                        <div><span>{{ company.numberPostal }}</span></div>
+                        <div><span>{{ company.city }}</span></div>
+                        <div><a href="{{ path('company_information', {'company' : company.id}) }}">Plus d'informations</a></div>
+                    </section>
+                </div>
+            {% endfor %}
+        </aside>
+    </section>
+
+    
+</main>
+
+{% endblock %}

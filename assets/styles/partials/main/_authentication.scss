@@ -1,0 +1,151 @@
+#form-auth {
+    width: 100%;
+
+    form {
+        width: 85%;
+        max-width: 500px;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        
+        .bloc-input {
+            margin-top: 20px;
+
+            input {
+                margin-top: 5px;
+                width: 100%;
+                height: 20px;
+                padding: 20px 10px;
+                border: 1px solid $gray-light;
+                font-size: 1.2rem;
+
+                &::placeholder {
+                    color: $gray-light;
+                }
+            }
+
+            .label {
+                display: block;
+                font-size: 1.2rem;
+                font-family: $heebo;
+                font-weight: 500;
+                color: $gray;
+
+                &:before {
+                    content: ' ';
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-bottom: 4px;
+                    margin-right: 5px;
+                    width: 24px;
+                    height: 20px;
+                }
+            }
+
+            .name-label {
+                &:before {
+                    background-image: $name;
+                }
+            }
+
+            .firstname-label {
+                &:before {
+                    background-image: $firstname;
+                }
+            }
+            
+            .email-label {
+                &:before {
+                    background-image: $email;
+                }
+            }
+
+            .phone-label {
+                &:before {
+                    background-image: $phone;
+                }
+            }
+
+            .password-label {
+                &:before {
+                    background-image: $lock;
+                }
+            }
+        }
+
+        .bloc-button {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 40px;
+
+            div {
+                width: 50%;
+            }
+
+            .bloc-login {
+                padding-right: 5px;
+            }
+
+            .bloc-inscription {
+                padding-left: 5px;
+            }
+
+            .button {
+                width: 100%;
+                padding: 15px 0;
+                border: none;
+                border-radius: 3px;
+                transition: 0.5s;
+            }
+
+            .button-login {
+                background-color: rgb(41, 157, 202);
+                cursor: pointer;
+                color: white;
+                font-family: $heebo;
+                font-weight: 400;
+                font-size: 1.1rem;
+                
+
+                &:hover {
+                    background-color: rgb(51, 183, 235);
+                    transition: 0.5s;
+                }
+            }
+
+            .button-inscription {
+                text-align: center;
+                display: block;
+                background-color: rgb(228, 228, 228);
+                text-decoration: none;
+                color: $gray;
+                font-family: $heebo;
+                font-weight: 400;
+                font-size: 1.1rem;
+
+                &:hover {
+                    background-color: rgb(218, 218, 218);
+                    transition: 0.5s;
+                }
+            }
+        }
+
+        #bloc-forgot-password {
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+
+            a {
+                text-decoration: none;
+                color: $gray-middle;
+                font-family: $heebo;
+                font-size: 1.1rem;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
